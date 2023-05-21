@@ -1,5 +1,5 @@
 :root {
-  background-color: #ecf5ff;
+  background-color: #27374D;
   font-size: 62.5%;
 }
 
@@ -8,7 +8,7 @@
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #DDE6ED;
 }
 
 h1,
@@ -20,7 +20,7 @@ h4 {
 
 h1 {
   font-size: 5.4rem;
-  color: #56a5eb;
+  color: #9DB2BF;
   margin-bottom: 5rem;
 }
 
@@ -85,11 +85,11 @@ h3 {
   padding: 1rem 0;
   width: 20rem;
   text-align: center;
-  border: 0.1rem solid #56a5eb;
+  border: 0.1rem solid #27374D;
   margin-bottom: 1rem;
   text-decoration: none;
-  color: #56a5eb;
-  background-color: white;
+  color: #27374D;
+  background-color: #DDE6ED;
 }
 
 .btn:hover {
