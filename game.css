@@ -3,7 +3,7 @@
   margin-bottom: 0.5rem;
   width: 100%;
   font-size: 1.8rem;
-  border: 0.1rem solid rgb(86, 165, 235, 0.25);
+  border: 0.1rem solid #57a6eb40;
   background-color: white;
   border-radius: 30px;
 }
@@ -57,14 +57,21 @@
   height: 4rem;
   border: 0.3rem solid #56a5eb;
   margin-top: 1.5rem;
+  border-radius: 5rem;
 }
 
 #progressBarFull {
-  height: 3.4rem;
+  height: 3.5rem;
   background-color: #56a5eb;
+  border-radius: 5rem;
   width: 0%;
 }
 
+@media screen and (max-width: 992px){
+  h2 {
+    font-size: 2.5rem;
+  }
+}
 /* LOADER */
 #loader {
   border: 1.6rem solid white;
