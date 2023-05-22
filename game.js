@@ -5,11 +5,14 @@ const scoreText = document.getElementById('score');
 const progressBarFull = document.getElementById('progressBarFull');
 const loader = document.getElementById('loader');
 const game = document.getElementById('game');
+const correctSound = document.getElementById('correctSound');
+const incorrectSound = document.getElementById('incorrectSound');
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
 let availableQuesions = [];
+
 
 let questions = [];
 
@@ -47,7 +50,7 @@ fetch(
     });
 
 const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 3;
+const MAX_QUESTIONS = 10;
 
 startGame = () => {
     questionCounter = 0;
@@ -95,6 +98,9 @@ choices.forEach((choice) => {
 
         if (classToApply === 'correct') {
             incrementScore(CORRECT_BONUS);
+            playSound(correctSound);
+        } else {
+          playSound(incorrectSound);
         }
 
         selectedChoice.parentElement.classList.add(classToApply);
@@ -110,3 +116,7 @@ incrementScore = (num) => {
     score += num;
     scoreText.innerText = score;
 };
+function playSound(audioElement) {
+    audioElement.currentTime = 0;
+    audioElement.play();
+  }
