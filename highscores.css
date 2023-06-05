@@ -17,6 +17,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin: 50px auto;
+  border-radius: 8px; /* Menambahkan border radius pada tabel */
 }
 
 th {
@@ -28,7 +29,7 @@ th {
 td,
 th {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #000;
   text-align: left;
   font-size: 18px;
 }
@@ -37,4 +38,3 @@ td {
   color: #000;
   background: #ccc;
 }
-
