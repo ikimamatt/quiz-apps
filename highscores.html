@@ -12,7 +12,20 @@
     <div class="container">
       <div id="highScores" class="flex-center flex-column">
         <h1 id="finalScore">High Scores</h1>
-        <ul id="highScoresList"></ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="username" data-column="Username" ></td>
+              <td id="score"data-column="Score"></td>
+            </tr>
+          </tbody>
+        </table>
         <a class="btn" href="/">Go Home</a>
       </div>
     </div>

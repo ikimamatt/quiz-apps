@@ -128,8 +128,9 @@ input {
   font-size: 1.8rem;
   border: none;
   box-shadow: 0 0.1rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+  color: black;
 }
 
 input::placeholder {
-  color: #aaa;
+  color: black;
 }
