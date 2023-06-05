@@ -1,17 +1,16 @@
-const username = document.getElementById("username");
-const score = document.getElementById("score");
+const highScoresList = document.getElementById("highScoresList");
 const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
-username.innerHTML = highScores
-  .map(score => {
-    return `${score.name}`;
-  })
-  .join("");
+highScores.forEach(score => {
+  const row = document.createElement("tr");
 
-score.innerHTML = highScores
-  .map(score => {
-    return `${score.score}`;
-  })
-  .join("");
+  const nameCell = document.createElement("td");
+  nameCell.textContent = score.name;
+  row.appendChild(nameCell);
 
-  
+  const scoreCell = document.createElement("td");
+  scoreCell.textContent = score.score;
+  row.appendChild(scoreCell);
+
+  highScoresList.appendChild(row);
+});
