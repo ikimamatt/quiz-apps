@@ -13,24 +13,25 @@ body {
   margin-bottom: 2rem;
 }
 
+/* BUTTONS */
 .btn {
-  border: 5px solid;
-  border-image-slice: 1;
-  background: var(--gradient) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  border-image-source:  var(--gradient) !important; 
+  font-size: 1.8rem;
+  padding: 1rem 0;
+  width: 10rem;
+  text-align: center;
+  border: 0.1rem solid #27374D !important;
+  margin-bottom: 1rem;
   text-decoration: none;
-  transition: all .4s ease;
+  background-color: #F9F54B !important;
+  font-weight: bold;
+  text-shadow: #27374D 0px 0px .8rem !important;
 }
 
-.btn:hover, .btn:focus {
-      background: var(--gradient) !important;
-  -webkit-background-clip: none !important;
-  -webkit-text-fill-color: #fff !important;
-  border: 5px solid #fff !important; 
-  box-shadow: #222 1px 0 10px;
-  text-decoration: underline;
+.btn:hover {
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
 }
 
 h5{
