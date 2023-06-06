@@ -7,6 +7,8 @@ const loader = document.getElementById('loader');
 const game = document.getElementById('game');
 const correctSound = document.getElementById('correctSound');
 const incorrectSound = document.getElementById('incorrectSound');
+const urlParams = new URLSearchParams(window.location.search);
+const cat = urlParams.get('cat');
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
@@ -15,39 +17,53 @@ let availableQuesions = [];
 
 
 let questions = [];
+let apiUrl = '';
 
-fetch(
-    'https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple'
-)
-    .then((res) => {
-        return res.json();
-    })
+switch (cat) {
+  case 'comp':
+    apiUrl = 'https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple';
+    break;
+  case 'game':
+    apiUrl = 'https://opentdb.com/api.php?amount=10&category=15&difficulty=easy&type=multiple';
+    break;
+  case 'history':
+    apiUrl = 'https://opentdb.com/api.php?amount=10&category=23&difficulty=easy&type=multiple';
+    break;
+  default:
+    console.log('Invalid category');
+}
+
+if (apiUrl !== '') {
+  fetch(apiUrl)
+    .then((res) => res.json())
     .then((loadedQuestions) => {
-        questions = loadedQuestions.results.map((loadedQuestion) => {
-            const formattedQuestion = {
-                question: loadedQuestion.question,
-            };
+      questions = loadedQuestions.results.map((loadedQuestion) => {
+        const formattedQuestion = {
+          question: loadedQuestion.question,
+        };
 
-            const answerChoices = [...loadedQuestion.incorrect_answers];
-            formattedQuestion.answer = Math.floor(Math.random() * 4) + 1;
-            answerChoices.splice(
-                formattedQuestion.answer - 1,
-                0,
-                loadedQuestion.correct_answer
-            );
+        const answerChoices = [...loadedQuestion.incorrect_answers];
+        formattedQuestion.answer = Math.floor(Math.random() * 4) + 1;
+        answerChoices.splice(
+          formattedQuestion.answer - 1,
+          0,
+          loadedQuestion.correct_answer
+        );
 
-            answerChoices.forEach((choice, index) => {
-                formattedQuestion['choice' + (index + 1)] = choice;
-            });
-
-            return formattedQuestion;
+        answerChoices.forEach((choice, index) => {
+          formattedQuestion['choice' + (index + 1)] = choice;
         });
 
-        startGame();
+        return formattedQuestion;
+      });
+
+      startGame();
     })
     .catch((err) => {
-        console.error(err);
+      console.error(err);
     });
+}
+
 
 const CORRECT_BONUS = 10;
 const MAX_QUESTIONS = 10;
